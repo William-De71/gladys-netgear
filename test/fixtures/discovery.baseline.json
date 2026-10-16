@@ -1,0 +1,550 @@
+{
+  "devices": {
+    "router": {
+      "external_id": "ext:netgear:router:main",
+      "should_poll": false,
+      "params": ["FIRMWARE", "HARDWARE"],
+      "features": [
+        {
+          "external_id": "ext:netgear:router:main:cpu",
+          "category": "level-sensor",
+          "type": "decimal",
+          "unit": "percent",
+          "min": 0,
+          "max": 100,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:netgear:router:main:memory",
+          "category": "level-sensor",
+          "type": "decimal",
+          "unit": "percent",
+          "min": 0,
+          "max": 100,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:netgear:router:main:download_today",
+          "category": "data",
+          "type": "size",
+          "unit": "megabyte",
+          "min": 0,
+          "max": 100000000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:netgear:router:main:upload_today",
+          "category": "data",
+          "type": "size",
+          "unit": "megabyte",
+          "min": 0,
+          "max": 100000000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:netgear:router:main:download_month",
+          "category": "data",
+          "type": "size",
+          "unit": "megabyte",
+          "min": 0,
+          "max": 100000000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:netgear:router:main:upload_month",
+          "category": "data",
+          "type": "size",
+          "unit": "megabyte",
+          "min": 0,
+          "max": 100000000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:netgear:router:main:speedtest_download",
+          "category": "datarate",
+          "type": "rate",
+          "unit": "megabits-per-second",
+          "min": 0,
+          "max": 10000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:netgear:router:main:speedtest_upload",
+          "category": "datarate",
+          "type": "rate",
+          "unit": "megabits-per-second",
+          "min": 0,
+          "max": 10000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:netgear:router:main:speedtest_ping",
+          "category": "duration",
+          "type": "decimal",
+          "unit": "milliseconds",
+          "min": 0,
+          "max": 10000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:netgear:router:main:internet",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:netgear:router:main:wan_ip",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:netgear:router:main:clients",
+          "category": "counter-sensor",
+          "type": "integer",
+          "min": 0,
+          "max": 10000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:netgear:router:main:firmware",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        }
+      ]
+    },
+    "settings": {
+      "external_id": "ext:netgear:settings:main",
+      "should_poll": false,
+      "params": [],
+      "features": [
+        {
+          "external_id": "ext:netgear:settings:main:guest_wifi_2g",
+          "category": "switch",
+          "type": "binary",
+          "min": 0,
+          "max": 1,
+          "read_only": false,
+          "has_feedback": true
+        },
+        {
+          "external_id": "ext:netgear:settings:main:guest_wifi_5g",
+          "category": "switch",
+          "type": "binary",
+          "min": 0,
+          "max": 1,
+          "read_only": false,
+          "has_feedback": true
+        },
+        {
+          "external_id": "ext:netgear:settings:main:access_control",
+          "category": "switch",
+          "type": "binary",
+          "min": 0,
+          "max": 1,
+          "read_only": false,
+          "has_feedback": true
+        },
+        {
+          "external_id": "ext:netgear:settings:main:traffic_meter",
+          "category": "switch",
+          "type": "binary",
+          "min": 0,
+          "max": 1,
+          "read_only": false,
+          "has_feedback": true
+        },
+        {
+          "external_id": "ext:netgear:settings:main:parental_control",
+          "category": "switch",
+          "type": "binary",
+          "min": 0,
+          "max": 1,
+          "read_only": false,
+          "has_feedback": true
+        },
+        {
+          "external_id": "ext:netgear:settings:main:qos",
+          "category": "switch",
+          "type": "binary",
+          "min": 0,
+          "max": 1,
+          "read_only": false,
+          "has_feedback": true
+        },
+        {
+          "external_id": "ext:netgear:settings:main:smart_connect",
+          "category": "switch",
+          "type": "binary",
+          "min": 0,
+          "max": 1,
+          "read_only": false,
+          "has_feedback": true
+        }
+      ]
+    },
+    "client": {
+      "external_id": "ext:netgear:client:10683faaaaaa",
+      "should_poll": false,
+      "params": ["MAC"],
+      "features": [
+        {
+          "external_id": "ext:netgear:client:10683faaaaaa:presence",
+          "category": "presence-sensor",
+          "type": "push",
+          "min": 0,
+          "max": 1,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:netgear:client:10683faaaaaa:access",
+          "category": "switch",
+          "type": "binary",
+          "min": 0,
+          "max": 1,
+          "read_only": false,
+          "has_feedback": true
+        }
+      ]
+    }
+  },
+  "manifest": {
+    "actions": ["test_connection", "forget_network_devices", "diagnostic"],
+    "config_schema": [
+      {
+        "key": "intro",
+        "type": "section"
+      },
+      {
+        "key": "host",
+        "type": "string"
+      },
+      {
+        "key": "port",
+        "type": "select"
+      },
+      {
+        "key": "username",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "type": "secret"
+      },
+      {
+        "key": "options_intro",
+        "type": "section"
+      },
+      {
+        "key": "poll_interval",
+        "type": "number"
+      },
+      {
+        "key": "network_devices",
+        "type": "select"
+      },
+      {
+        "key": "absence_delay",
+        "type": "number"
+      },
+      {
+        "key": "language",
+        "type": "select"
+      }
+    ],
+    "scene_triggers": [
+      {
+        "key": "internet_status_changed",
+        "fields": [
+          {
+            "key": "status",
+            "options": ["disconnected", "connected"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "status",
+            "type": "string"
+          },
+          {
+            "key": "previous_status",
+            "type": "string"
+          },
+          {
+            "key": "wan_ip",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "wan_ip_changed",
+        "fields": [],
+        "variables": [
+          {
+            "key": "wan_ip",
+            "type": "string"
+          },
+          {
+            "key": "previous_wan_ip",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "network_device_presence",
+        "fields": [
+          {
+            "key": "device",
+            "options": []
+          },
+          {
+            "key": "event",
+            "options": ["arrived", "left"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "device_name",
+            "type": "string"
+          },
+          {
+            "key": "event",
+            "type": "string"
+          },
+          {
+            "key": "mac",
+            "type": "string"
+          },
+          {
+            "key": "ip",
+            "type": "string"
+          },
+          {
+            "key": "connection",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "new_network_device",
+        "fields": [
+          {
+            "key": "medium",
+            "options": ["wifi", "wired"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "mac",
+            "type": "string"
+          },
+          {
+            "key": "ip",
+            "type": "string"
+          },
+          {
+            "key": "name",
+            "type": "string"
+          },
+          {
+            "key": "medium",
+            "type": "string"
+          },
+          {
+            "key": "connection",
+            "type": "string"
+          },
+          {
+            "key": "ssid",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "firmware_update_available",
+        "fields": [],
+        "variables": [
+          {
+            "key": "current_version",
+            "type": "string"
+          },
+          {
+            "key": "new_version",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "scene_actions": [
+      {
+        "key": "get_status",
+        "fields": [],
+        "outputs": [
+          {
+            "key": "cpu",
+            "type": "number"
+          },
+          {
+            "key": "memory",
+            "type": "number"
+          },
+          {
+            "key": "internet",
+            "type": "string"
+          },
+          {
+            "key": "wan_ip",
+            "type": "string"
+          },
+          {
+            "key": "devices_present",
+            "type": "number"
+          },
+          {
+            "key": "download_today",
+            "type": "number"
+          },
+          {
+            "key": "upload_today",
+            "type": "number"
+          },
+          {
+            "key": "download_month",
+            "type": "number"
+          },
+          {
+            "key": "upload_month",
+            "type": "number"
+          },
+          {
+            "key": "guest_wifi",
+            "type": "boolean"
+          },
+          {
+            "key": "firmware",
+            "type": "string"
+          },
+          {
+            "key": "update_available",
+            "type": "boolean"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "run_speed_test",
+        "fields": [],
+        "outputs": [
+          {
+            "key": "download",
+            "type": "number"
+          },
+          {
+            "key": "upload",
+            "type": "number"
+          },
+          {
+            "key": "ping",
+            "type": "number"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "check_updates",
+        "fields": [],
+        "outputs": [
+          {
+            "key": "update_available",
+            "type": "boolean"
+          },
+          {
+            "key": "current_version",
+            "type": "string"
+          },
+          {
+            "key": "new_version",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "reboot",
+        "fields": [],
+        "outputs": []
+      }
+    ],
+    "widgets": [
+      {
+        "key": "overview",
+        "settings": [],
+        "options": {}
+      },
+      {
+        "key": "traffic",
+        "settings": ["interval"],
+        "options": {
+          "interval": ["last-hour", "last-twelve-hours", "last-day", "last-three-days", "last-week"]
+        }
+      },
+      {
+        "key": "network",
+        "settings": ["show"],
+        "options": {
+          "show": ["present", "absent", "all"]
+        }
+      }
+    ]
+  }
+}

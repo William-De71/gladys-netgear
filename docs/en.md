@@ -1,0 +1,99 @@
+# NETGEAR
+
+## Overview
+
+This integration brings a **NETGEAR router** into Gladys: Nighthawk, Orbi and the other NETGEAR routers that the NETGEAR apps (Nighthawk, Orbi, Genie) manage on the local network. It talks to the local API of the router (SOAP) every 30 seconds:
+
+- the **router**: CPU and memory usage, traffic meter of the day and of the month, last speed test, internet status, WAN address, connected clients, firmware;
+- its **settings**, as switches: guest Wi-Fi 2.4 GHz and 5 GHz, access control, traffic meter, parental control, QoS, Smart Connect (those your model offers);
+- the **devices of your network**, as presence sensors, with their **network access** (allow or block) as a switch.
+
+It also brings scene triggers (internet down or back, public IP address changed, device arrived or left, new device on the network, firmware update available), scene actions (read the status, run a speed test, check for a firmware update, reboot) and three dashboard widgets.
+
+![The three widgets of the integration: NETGEAR router overview, internet traffic and network devices (generated illustration, not a screenshot)](https://raw.githubusercontent.com/William-De71/gladys-netgear/main/docs/assets/widgets.en.png)
+
+The image above is a generated illustration, not a screenshot.
+
+## Prerequisites
+
+- Gladys Assistant 5.1.0 or later.
+- A NETGEAR router or Orbi system in router mode. In access point mode the router still lists its clients, but the internet features stay empty.
+- The administrator account of the router: user `admin` and the password of its web interface (**not** the Wi-Fi key).
+- Gladys must reach the router: its LAN address (often `192.168.1.1`, `10.0.0.1` for an Orbi). The local API listens on port 5000 on most routers, 80 on Orbi, 443 or 5555 on a few: **Automatic** finds it.
+- Each group of features appears only if your model answers it: CPU and memory, traffic meter, speed test and each setting depend on the model and firmware.
+
+## Configuration
+
+| Field                   | Description                                                                                                     |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Router address          | Its IP address, `192.168.1.1` for example.                                                                      |
+| API port                | Automatic (default) tries 5000, 80, 443 and 5555. Choose one only if the automatic detection fails.             |
+| User name               | `admin` by default.                                                                                             |
+| Password                | The password of the router web interface.                                                                       |
+| Reading interval (s)    | 10 to 300 seconds, 30 by default.                                                                               |
+| Network devices offered | Those with a name (default), all, or none.                                                                      |
+| Absence delay (min)     | A device is absent once it has been gone that long. 5 by default: a phone asleep leaves the Wi-Fi for a while.  |
+| Language of the texts   | Names, states and scene summaries. Automatic: the language of your dashboard, once a widget has been displayed. |
+
+Three buttons below: **Test the connection** shows the model, the firmware and the port found; **Forget known devices** makes the devices present now the reference of the "new device" trigger; **Diagnostic** writes an anonymized report to the Logs tab of the integration (see Troubleshooting).
+
+## Usage
+
+### Devices
+
+Open **Discover** in the integration and add the devices you want:
+
+| Device           | Features                                                                                                                                                        |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NETGEAR router   | CPU and memory usage (%), downloaded and uploaded today and this month (MB), last speed test (Mbit/s, ms), internet, WAN IP, connected clients, firmware        |
+| NETGEAR settings | Switches: guest Wi-Fi 2.4 GHz, guest Wi-Fi 5 GHz, access control, traffic meter, parental control, QoS, Smart Connect (those the router answers)                |
+| Network device   | Presence: 1 while the router lists it, 0 once it has been gone for the absence delay. Network access: allowed (on) or blocked (off), when the router reports it |
+
+The traffic meter counts only when it is on in the router (**Advanced › Advanced Setup › Traffic Meter**, or the "Traffic meter" switch).
+
+### Presence of the devices
+
+A device is present as soon as the router lists it, and absent once it has been gone for the absence delay. While present, its presence is sent again every minute, like the Bluetooth presence of Gladys: the "check presence" action of a scene works with it. Some routers keep a device in their list for a few minutes after it left: add that to the delay. Give the phones a name in the router (**Attached Devices**) to find them easily: by default, only the devices with a name are offered.
+
+### Network access and settings
+
+The **Network access** switch of a device blocks it (off) or allows it (on) on the network, through the access control of the router: turn the **Access control** switch (or **Security › Access Control** in the router) on first. Switching a setting makes the router apply its configuration: the Wi-Fi may drop for a few seconds. Each change is read back from the router: it counts only when the router reports it.
+
+### Dashboard widgets
+
+- **NETGEAR router**: CPU and memory gauges, connected clients, internet, WAN address, guest Wi-Fi, firmware, and two buttons: **Check firmware** and **Reboot** (with a confirmation).
+- **Internet traffic**: downloaded and uploaded today and this month, the chart of the day (once the router device is added), the last speed test and a **Run a speed test** button. Setting: chart period.
+- **Network devices**: the devices connected now, the ones that left, or all, with their connection (wired, Wi-Fi band, network, signal, link rate) and a "Blocked" badge. Setting: what to show.
+
+### Scenes
+
+Triggers:
+
+- **Internet down or back**: link of the internet port and public address. Filter on the status. Variables: status, WAN IP, summary.
+- **Public IP address changed**: the provider gave a new address. Variables: new and previous address, summary.
+- **Device arrived or left**: a device added in Gladys, or any. Variables: name, event, MAC, IP, connection, summary.
+- **New device on the network**: a MAC address never seen before, once (remembered across restarts). Filter: Wi-Fi or wired.
+- **Firmware update available**: checked every 6 hours.
+
+Actions:
+
+- **Read the status**: CPU, memory, internet, WAN IP, devices present, traffic of the day and of the month, guest Wi-Fi, firmware, update available, and a summary for a message.
+- **Run a speed test**: the router measures its line (Ookla) for up to a minute; download, upload, ping and a summary.
+- **Check for a firmware update**: asks the router to check the NETGEAR server now.
+- **Reboot the router**: the network and the internet are cut for a few minutes.
+
+Examples: when guests arrive (a scene button), turn the guest Wi-Fi on, and off again at midnight; at 21:00, block the console of the children, allow it again at 7:00; when the public IP address changes, send it by message.
+
+### Transport
+
+Local only: the integration talks to the local API of the router on your network, nothing goes through a cloud. The router itself contacts the NETGEAR update server during a firmware check, and the Ookla servers during a speed test.
+
+## Troubleshooting
+
+- **"The router refuses the user name or the password"**: type the password of the web interface again (not the Wi-Fi key); the integration waits 5 minutes before trying again, saving the configuration tries at once.
+- **"does not answer like a NETGEAR router"** or **"does not answer"**: check the address; choose the port by hand (5000, then 80 for an Orbi). Some old models have no local API.
+- **A feature is missing**: your model does not answer it (CPU, traffic meter, speed test, some settings). Click **Diagnostic**: the report lists what the router answers.
+- **The traffic stays at 0**: turn the traffic meter on in the router.
+- **Blocking a device has no effect**: turn the access control on first.
+- **A phone shows as absent while home**: raise the absence delay; some phones put their Wi-Fi to sleep for a long time.
+- **Report a problem**: click **Diagnostic**, open the Logs tab of the integration, and copy the lines starting with `NETGEAR diagnostic` (serial number, MAC addresses, names, SSIDs and public IP are left out) into an issue on [GitHub](https://github.com/William-De71/gladys-netgear/issues), with the versions of Gladys and of the integration. The password never appears in the logs.

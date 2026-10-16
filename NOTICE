@@ -1,0 +1,19 @@
+Gladys NETGEAR integration
+Copyright 2026 William Deren
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The router client (src/netgear-api.js, src/operations.js, src/read.js) is a
+JavaScript rewrite after the pynetgear Python library, Copyright 2013 Paulus
+Schoutsen and contributors, licensed under the MIT License
+(https://github.com/MatMaul/pynetgear). No file of it is included; the
+protocol details (SOAP services and methods, login versions, ports, answer
+formats and codes) come from it.
+
+The list of the models that answer the second client list format
+(src/operations.js, MODELS_V2) comes from the Home Assistant NETGEAR
+integration, Copyright Home Assistant contributors, licensed under the Apache
+License, Version 2.0 (https://github.com/home-assistant/core).
+
+NETGEAR, Nighthawk and Orbi are trademarks of NETGEAR, Inc. This community
+integration is not affiliated with, endorsed or sponsored by NETGEAR, Inc.
