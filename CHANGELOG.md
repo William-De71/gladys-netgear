@@ -5,6 +5,12 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions
 follow [Semantic Versioning](https://semver.org/). This file is generated at
 each release from the Conventional Commits: do not edit it by hand.
 
+## [0.2.0] - 2026-10-25
+
+### Added
+
+- require Gladys 5.3 and declare catalog keywords ([a4aa23b](https://github.com/William-De71/gladys-netgear/commit/a4aa23b7884afa461139bfcc03d628653796fc68))
+
 ## [0.1.1] - 2026-10-24
 
 ### Security
@@ -25,5 +31,6 @@ each release from the Conventional Commits: do not edit it by hand.
 - Local transport only: login version 2 or 1, port 5000, 80, 443 or 5555 found automatically, one session kept, no new attempt for 5 minutes after a refused password.
 - English, French, German and Spanish everywhere: settings, devices, widgets, scenes and documentation.
 
+[0.2.0]: https://github.com/William-De71/gladys-netgear/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/William-De71/gladys-netgear/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/William-De71/gladys-netgear/releases/tag/v0.1.0

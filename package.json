@@ -1,6 +1,6 @@
 {
   "name": "gladys-netgear",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "description": "External Gladys Assistant integration for NETGEAR routers (Nighthawk, Orbi): network presence, traffic meter, speed test, guest Wi-Fi and router settings, scenes and dashboard widgets.",
   "homepage": "https://github.com/William-De71/gladys-netgear",
