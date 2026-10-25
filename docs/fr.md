@@ -16,7 +16,7 @@ L’image ci-dessus est une illustration générée, pas une capture d’écran.
 
 ## Prérequis
 
-- Gladys Assistant 5.1.0 ou plus récent.
+- Gladys Assistant 5.3.0 ou plus récent.
 - Un routeur NETGEAR ou un système Orbi en mode routeur. En mode point d’accès, le routeur liste toujours ses clients, mais les fonctions Internet restent vides.
 - Le compte administrateur du routeur : l’utilisateur `admin` et le mot de passe de son interface web (**pas** la clé Wi-Fi).
 - Gladys doit joindre le routeur : son adresse sur le réseau local (souvent `192.168.1.1`, `10.0.0.1` pour un Orbi). L’API locale écoute sur le port 5000 pour la plupart des routeurs, 80 pour les Orbi, 443 ou 5555 pour quelques-uns : **Automatique** le trouve.
